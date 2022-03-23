@@ -1,17 +1,23 @@
 import React from "react";
-import PreLoadedVideo from "./components/videoComponent/PreLoadedVideo";
+import { BrowserRouter as Router } from "react-router-dom";
 import Navbar from "./pages/navbar/Navbar";
-
+import StreamBaseRoutes from "./routes/StreamBaseRoutes";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import AuthProvider from "./api/AuthContext";
 const App = () => {
   return (
-    <>
-      <header>
-        <Navbar />
-      </header>
-      <main>
-        <PreLoadedVideo />
-      </main>
-    </>
+    <AuthProvider>
+      <Router>
+        <header>
+          <Navbar />
+        </header>
+        <main>
+          <ToastContainer pauseOnHover theme="dark" />
+          <StreamBaseRoutes />
+        </main>
+      </Router>
+    </AuthProvider>
   );
 };
 

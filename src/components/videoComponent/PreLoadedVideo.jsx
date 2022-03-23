@@ -19,11 +19,13 @@ const PreLoadedVideo = () => {
   return (
     <section id={Styles.videoBlock}>
       <div className={Styles.videoDesc}>
-        <h2>Lorem ipsum dolor sit.</h2>
+        <h2>
+          Unlimited movies, TV <br />
+          shows and more.
+        </h2>
+        <p>Watch anywhere. Cancel anytime.</p>
         <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias
-          quae commodi quas quo animi earum inventore quod soluta corrupti
-          laborum....
+          Ready to watch? Enter your email to create or restart your membership.
         </p>
         <p>
           <main onClick={VideoControls}>
