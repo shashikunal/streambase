@@ -1,0 +1,39 @@
+.profileBlock {
+  width: 100%;
+  margin: 0px auto;
+  display: flex;
+  background-color: #7777;
+  height: 100vh;
+}
+
+.sidebarMenu {
+  flex-basis: 20%;
+  background: #000;
+  padding: 10px;
+}
+.mainProfile {
+  padding: 10px;
+  flex-basis: 80%;
+}
+
+.photoURL {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 200px;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photoURL img {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+}

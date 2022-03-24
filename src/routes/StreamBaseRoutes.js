@@ -3,6 +3,7 @@ import Home from "./../pages/home/Home";
 import Login from "./../components/authComponent/Login";
 import Signup from "../components/authComponent/Signup";
 import NotFound from "../pages/notfound/NotFound";
+import MyProfile from "./../components/profile/MyProfile";
 
 let StreamBaseRoutes = () => {
   let StreamRoutes = useRoutes([
@@ -17,6 +18,10 @@ let StreamBaseRoutes = () => {
     {
       path: "signup",
       element: <Signup />,
+    },
+    {
+      path: "myprofile",
+      element: <MyProfile />,
     },
     {
       path: "*",

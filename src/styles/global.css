@@ -14,3 +14,52 @@ body {
 .active {
   color: #ffc107;
 }
+
+.show {
+  display: block !important;
+  transform: translateX(0px);
+  transition: ease all 0.7s;
+}
+
+.hide {
+  display: none;
+  transform: translateX(220px);
+  transition: ease all 0.7s;
+}
+.dropDown {
+  position: fixed;
+  background: #111111cc;
+  width: 268px;
+  min-height: 250px;
+  border-radius: 3px;
+  border-bottom: 3px solid #ffc107;
+  padding: 20px;
+  display: none;
+  transform: translate(0px);
+  transition: ease all 0.7s;
+}
+.dropDown > ul {
+  list-style: none;
+}
+
+.dropDown > ul li a {
+  text-decoration: none;
+  padding: 8px 8px;
+  text-transform: capitalize;
+  color: #fff;
+  width: 100%;
+  display: flex;
+  font-size: 14px;
+  align-items: center;
+}
+
+.dropDown > ul li a svg {
+  background: #ffc107;
+  color: #111;
+  padding: 0px 6px;
+  margin: 6px 9px 0 0;
+  border-radius: 5px;
+  font-size: 16px;
+  height: 20px;
+  width: 24px;
+}

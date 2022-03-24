@@ -47,13 +47,30 @@
   font-size: 33px;
   margin: 0px 12px 0 0;
 }
-.navbarUl {
+.menu > ul {
   display: flex;
   list-style: none;
+  align-items: center;
 }
 
 .navbarAnchor {
   color: #fff;
   text-decoration: none;
   padding: 10px 20px;
+}
+
+.navbarIconLink {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin: 0px;
+  color: #fff;
+  text-decoration: none;
+}
+.navbarIcon {
+  margin: 1px 8px 0 0;
+  width: 30px;
+  height: 30px;
+  position: relative;
+  border-radius: 100%;
 }
