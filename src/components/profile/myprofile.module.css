@@ -9,7 +9,7 @@
 .sidebarMenu {
   flex-basis: 20%;
   background: #000;
-  padding: 10px;
+  padding: 7px 4px;
 }
 .mainProfile {
   padding: 10px;
@@ -36,4 +36,38 @@
   width: 150px;
   height: 150px;
   object-fit: cover;
+}
+
+.sidebarMenu ul {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+}
+
+.sidebarMenu ul li a {
+  text-transform: capitalize;
+  text-decoration: none;
+  background: #3333336e;
+  padding: 10px;
+  display: flex;
+  width: 100%;
+  margin: 4px 0;
+  border-left: 3px solid #ff980045;
+  font-size: 14px;
+  color: #fff;
+}
+
+.sidebarMenu svg {
+  padding: 0px 1px;
+  margin: -1px 4px;
+  font-size: 19px;
+  color: #ffc107;
+  font-weight: bold;
+}
+
+.sidebarMenu ul li a:hover {
+  border-right: 2px solid #ffc107;
+  transition: ease-in 0.7s all;
+  transform: translate(1);
+  background-color: #333333ed;
 }

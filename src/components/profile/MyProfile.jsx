@@ -1,4 +1,5 @@
 import React from "react";
+
 import MainProfile from "./MainProfile";
 import Styles from "./myprofile.module.css";
 import SidebarMenu from "./SidebarMenu";
