@@ -42,6 +42,7 @@ const Login = () => {
       <article className={Styles.authArticle}>
         <h2 style={{ padding: "20px 0" }}>Login</h2>
         <div className={Styles.formBlock}>
+          <Link to="/phone-auth">Try with phone number</Link>
           <form onSubmit={handleSubmit}>
             <div className="form-group">
               <label htmlFor="email" className={Styles.formLabel}>
@@ -77,6 +78,11 @@ const Login = () => {
                 new to Stream base{" "}
                 <Link to="/signup" className={Styles.gotoAuthLink}>
                   Signup
+                </Link>
+              </p>
+              <p style={{ clear: " both", padding: "3px 0" }}>
+                <Link to="/password-reset" className={Styles.gotoAuthLink}>
+                  forgot password
                 </Link>
               </p>
             </div>

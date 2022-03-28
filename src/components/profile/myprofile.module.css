@@ -21,7 +21,6 @@
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 200px;
 }
 
 .userInfo {
@@ -33,8 +32,8 @@
 
 .photoURL img {
   border-radius: 100%;
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
@@ -70,4 +69,36 @@
   transition: ease-in 0.7s all;
   transform: translate(1);
   background-color: #333333ed;
+}
+
+.asideIcon {
+  width: 200px;
+  height: 200px;
+  border-radius: 100%;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+  cursor: pointer;
+}
+
+.asideIcon main {
+  position: absolute;
+  background: #ffc107;
+  width: 100%;
+  text-align: center;
+  bottom: 0px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  cursor: pointer;
+  transition: ease all 0.7s;
+}
+
+.asideIcon:hover main {
+  opacity: 1;
+}
+.asideIcon a {
+  color: #fff;
 }

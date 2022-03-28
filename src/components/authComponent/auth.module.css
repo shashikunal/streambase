@@ -80,4 +80,10 @@
 .gotoAuthLink {
   color: #ffc107;
   padding: 0px 11px;
+  font-size: 13px;
+  text-decoration: none;
+  text-transform: capitalize;
+}
+.gotoAuthLink:hover {
+  color: #fff;
 }

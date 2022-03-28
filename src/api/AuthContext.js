@@ -1,5 +1,8 @@
 import { createContext, useState, useEffect } from "react";
-import { onAuthStateChanged } from "firebase/auth";
+import {
+  onAuthStateChanged,
+  reauthenticateWithPhoneNumber,
+} from "firebase/auth";
 import { auth } from "./firebase";
 
 export let AuthContext = createContext();
@@ -7,7 +10,10 @@ let AuthProvider = ({ children }) => {
   let [user, setUser] = useState("");
   useEffect(() => {
     return onAuthStateChanged(auth, userInfo => {
-      if (userInfo && userInfo.emailVerified === true) {
+      if (
+        (userInfo && userInfo.emailVerified === true) ||
+        reauthenticateWithPhoneNumber
+      ) {
         setUser(userInfo);
       } else {
         setUser(null);

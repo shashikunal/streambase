@@ -6,6 +6,8 @@ import NotFound from "../pages/notfound/NotFound";
 import MyProfile from "./../components/profile/MyProfile";
 import UploadProfilePhoto from "../components/profile/UploadProfilePhoto";
 import MyAccount from "../components/profile/MyAccount";
+import PasswordReset from "./../components/authComponent/PasswordReset";
+import PhoneAuth from "./../components/authComponent/PhoneAuth";
 
 let StreamBaseRoutes = () => {
   let StreamRoutes = useRoutes([
@@ -20,6 +22,14 @@ let StreamBaseRoutes = () => {
     {
       path: "signup",
       element: <Signup />,
+    },
+    {
+      path: "password-reset",
+      element: <PasswordReset />,
+    },
+    {
+      path: "phone-auth",
+      element: <PhoneAuth />,
     },
     {
       path: "myprofile",

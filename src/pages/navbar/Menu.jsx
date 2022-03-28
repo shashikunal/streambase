@@ -3,12 +3,21 @@ import { NavLink } from "react-router-dom";
 import Styles from "./navbar.module.css";
 import { FaUser } from "react-icons/fa";
 import { AuthContext } from "../../api/AuthContext";
+import { signOut } from "firebase/auth";
+import { auth } from "../../api/firebase";
+import { toast } from "react-toastify";
 const Menu = () => {
   let [toggle, setToggle] = useState(false);
   let USER = useContext(AuthContext);
   let toggleRef = useRef();
   let dropDownMenu = e => {
     setToggle(!toggle);
+  };
+
+  let LogOut = async () => {
+    await signOut(auth);
+    toast.success("successfully logged out");
+    window.location.assign("/login");
   };
 
   let AuthenticatedUser = () => {
@@ -42,9 +51,9 @@ const Menu = () => {
           </div>
         </li>
         <li>
-          <NavLink to={{ pathname: "/" }} className={Styles.navbarAnchor}>
+          <a href="#" onClick={LogOut} className={Styles.navbarAnchor}>
             Logout
-          </NavLink>
+          </a>
         </li>
       </>
     );
