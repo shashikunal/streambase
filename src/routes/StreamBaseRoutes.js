@@ -8,6 +8,8 @@ import UploadProfilePhoto from "../components/profile/UploadProfilePhoto";
 import MyAccount from "../components/profile/MyAccount";
 import PasswordReset from "./../components/authComponent/PasswordReset";
 import PhoneAuth from "./../components/authComponent/PhoneAuth";
+import ProtectedRoute from "./../helpers/ProtectedRoute";
+import UpdatePassword from "./../components/profile/UpdatePassword";
 
 let StreamBaseRoutes = () => {
   let StreamRoutes = useRoutes([
@@ -33,11 +35,19 @@ let StreamBaseRoutes = () => {
     },
     {
       path: "myprofile",
-      element: <MyProfile />,
+      element: (
+        <ProtectedRoute>
+          <MyProfile />
+        </ProtectedRoute>
+      ),
       children: [
         {
           path: "upload-photo",
           element: <UploadProfilePhoto />,
+        },
+        {
+          path: "update-password",
+          element: <UpdatePassword />,
         },
         {
           path: "my-account",

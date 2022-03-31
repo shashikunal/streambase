@@ -16,6 +16,7 @@ const Menu = () => {
 
   let LogOut = async () => {
     await signOut(auth);
+    window.sessionStorage.removeItem("TOKEN");
     toast.success("successfully logged out");
     window.location.assign("/login");
   };

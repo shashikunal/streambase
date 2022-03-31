@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 import Styles from "./myprofile.module.css";
 import { AuthContext } from "./../../api/AuthContext";
 import { FaCamera } from "react-icons/fa";
+import Spinner from "../../pages/spinner/Spinner";
 const MyAccount = () => {
   let USER = useContext(AuthContext);
-  let { displayName, email, emailVerified, photoURL } = USER;
-  return (
-    <section>
-      <article>
+
+  let ProfileUI = () => {
+    let { displayName, email, emailVerified, photoURL } = USER;
+    return (
+      <>
         <div className={Styles.photoURL}>
           <aside className={Styles.asideIcon}>
             <Link to="/myprofile/upload-photo">
@@ -33,7 +35,12 @@ const MyAccount = () => {
             <p>{emailVerified}</p>
           </aside>
         </div>
-      </article>
+      </>
+    );
+  };
+  return (
+    <section>
+      <article>{USER === null ? <Spinner /> : <ProfileUI />}</article>
     </section>
   );
 };
