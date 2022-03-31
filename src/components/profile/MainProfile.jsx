@@ -5,7 +5,7 @@ import MyAccount from "./MyAccount";
 const MainProfile = () => {
   let location = useLocation();
   return (
-    <div>{location.pathname === "/myprofile" ? <MyAccount /> : <Outlet />}</div>
+    <div>{location.pathname === "/user" ? <MyAccount /> : <Outlet />}</div>
   );
 };
 

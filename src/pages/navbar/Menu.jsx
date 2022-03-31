@@ -1,7 +1,7 @@
-import React, { useContext, useState, useRef, useEffect } from "react";
+import React, { useContext, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 import Styles from "./navbar.module.css";
-import { FaUser } from "react-icons/fa";
+import { FaUser, FaUpload } from "react-icons/fa";
 import { AuthContext } from "../../api/AuthContext";
 import { signOut } from "firebase/auth";
 import { auth } from "../../api/firebase";
@@ -24,6 +24,18 @@ const Menu = () => {
   let AuthenticatedUser = () => {
     return (
       <>
+        <li style={{ padding: "0 5px" }}>
+          <NavLink
+            to={{ pathname: "/user/movie" }}
+            className={Styles.navbarIconLink}
+            id="uploadLink"
+          >
+            <span style={{ padding: "0 10px" }}>
+              <FaUpload />
+            </span>
+            <span> Movie</span>
+          </NavLink>
+        </li>
         <li onClick={dropDownMenu}>
           <NavLink to={{ pathname: "/" }} className={Styles.navbarIconLink}>
             <span>
@@ -33,15 +45,16 @@ const Menu = () => {
                 className={Styles.navbarIcon}
               />
             </span>
-            <span>Profile</span>
+            <span>{USER.displayName}</span>
           </NavLink>
+
           <div
             className={toggle === true ? "dropDown show" : "dropDown hide"}
             ref={toggleRef}
           >
             <ul>
               <li>
-                <NavLink to="/myprofile">
+                <NavLink to="/user">
                   <span>
                     <FaUser />
                   </span>

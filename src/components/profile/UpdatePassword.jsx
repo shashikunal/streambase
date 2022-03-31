@@ -24,7 +24,7 @@ const UpdatePassword = () => {
       setLoading(true);
       await updatePassword(USER, password);
       toast.success("successfully password updated");
-      navigate("/myprofile");
+      navigate("/user");
     } catch (error) {
       toast.error(error.message);
     }
@@ -57,7 +57,7 @@ const UpdatePassword = () => {
             </div>
             <div className="form-group">
               <p className={Styles.gotoAuth}>
-                <Link to="/myprofile" className={Styles.gotoAuthLink}>
+                <Link to="/user" className={Styles.gotoAuthLink}>
                   go back to my profile
                 </Link>
               </p>

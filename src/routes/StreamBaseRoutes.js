@@ -11,6 +11,9 @@ import PhoneAuth from "./../components/authComponent/PhoneAuth";
 import ProtectedRoute from "./../helpers/ProtectedRoute";
 import UpdatePassword from "./../components/profile/UpdatePassword";
 
+import Movies from "../components/movies/Movies";
+import UploadMovie from "../components/movies/UploadMovie";
+
 let StreamBaseRoutes = () => {
   let StreamRoutes = useRoutes([
     {
@@ -34,7 +37,7 @@ let StreamBaseRoutes = () => {
       element: <PhoneAuth />,
     },
     {
-      path: "myprofile",
+      path: "user",
       element: (
         <ProtectedRoute>
           <MyProfile />
@@ -53,8 +56,23 @@ let StreamBaseRoutes = () => {
           path: "my-account",
           element: <MyAccount />,
         },
+        {
+          path: "movie",
+          element: (
+            <ProtectedRoute>
+              <Movies />
+            </ProtectedRoute>
+          ),
+          children: [
+            {
+              path: "upload-movie",
+              element: <UploadMovie />,
+            },
+          ],
+        },
       ],
     },
+
     {
       path: "*",
       element: <NotFound />,
