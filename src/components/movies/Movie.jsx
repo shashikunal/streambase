@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React from "react";
 import Styles from "./movie.module.css";
 import { AiFillStar } from "react-icons/ai";
 import { RiUser5Fill } from "react-icons/ri";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 const Movie = props => {
   const totalStars = 5;
-  let location = useLocation();
+
   let {
     title,
     id,
@@ -18,13 +18,19 @@ const Movie = props => {
     downLoadUrlVideo,
     yol,
   } = props.movieVal;
+
   return (
     <main className="col-4">
       <div>
         <header>
-          <a href="/">
+          <Link
+            to={{
+              pathname: `/${title}/${id}`,
+            }}
+            state={{ ...props }}
+          >
             <img src={downLoadUrlPhoto} alt={title} />
-          </a>
+          </Link>
         </header>
         <aside>
           <h2>{title}</h2>
@@ -59,10 +65,16 @@ const Movie = props => {
           </p>
         </aside>
         <footer className={Styles.movie_footer}>
-          <Link to={{ pathname: `/${title}/${id}`, state: props }}>
+          <Link
+            to={{
+              pathname: `/${title}/${id}`,
+            }}
+            state={{ ...props }}
+          >
             watch now
           </Link>
         </footer>
+        {/* <button onClick={sendMovies}>watch now</button> */}
       </div>
     </main>
   );
