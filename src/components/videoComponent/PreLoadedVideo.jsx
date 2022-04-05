@@ -1,11 +1,12 @@
-import React, { useRef, useState } from "react";
-import VIDEO from "./arabic_kuthu.mp4";
+import React, { useRef, useState, useContext, Fragment } from "react";
+// import VIDEO from "./arabic_kuthu.mp4";
 import Styles from "./video.module.css";
 import { FaPlay, FaPause } from "react-icons/fa";
+import { MovieContext } from "./../../api/MovieContext";
 const PreLoadedVideo = () => {
+  let { Movies } = useContext(MovieContext);
   let videoRef = useRef();
   let [play, setPlay] = useState(true);
-
   let VideoControls = () => {
     setPlay(!play);
     if (play) {
@@ -18,38 +19,40 @@ const PreLoadedVideo = () => {
   };
   return (
     <section id={Styles.videoBlock}>
-      <div className={Styles.videoDesc}>
-        <h2>
-          Unlimited movies, TV <br />
-          shows and more.
-        </h2>
-        <p>Watch anywhere. Cancel anytime.</p>
-        <p>
-          Ready to watch? Enter your email to create or restart your membership.
-        </p>
-        <p>
-          <main onClick={VideoControls}>
-            {play ? (
-              <aside className={Styles.videoAside}>
-                <FaPause className={Styles.videoPlay} />
-                <span>Pause</span>
-              </aside>
-            ) : (
-              <aside className={Styles.videoAside}>
-                <FaPlay className={Styles.videoPlay} />
-                <span>Play</span>
-              </aside>
-            )}
-          </main>
-        </p>
-      </div>
-      <video
-        ref={videoRef}
-        src={VIDEO}
-        className={Styles.videoBlockPlayer}
-        muted
-        autoPlay
-      ></video>
+      {Movies.length > 0 && (
+        <Fragment>
+          <div className={Styles.videoDesc}>
+            <h2>{Movies[Movies.length - 1].movieVal.title}</h2>
+            <p>Watch anywhere. Cancel anytime.</p>
+            <p>
+              {Movies[Movies.length - 1].movieVal.description.slice(0, 60) +
+                "..."}
+            </p>
+            <p>
+              <main onClick={VideoControls}>
+                {play ? (
+                  <aside className={Styles.videoAside}>
+                    <FaPause className={Styles.videoPlay} />
+                    <span>Pause</span>
+                  </aside>
+                ) : (
+                  <aside className={Styles.videoAside}>
+                    <FaPlay className={Styles.videoPlay} />
+                    <span>Play</span>
+                  </aside>
+                )}
+              </main>
+            </p>
+          </div>
+          <video
+            ref={videoRef}
+            src={Movies[Movies.length - 1].movieVal.downLoadUrlVideo}
+            className={Styles.videoBlockPlayer}
+            muted
+            autoPlay
+          ></video>
+        </Fragment>
+      )}
     </section>
   );
 };

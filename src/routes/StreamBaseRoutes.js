@@ -13,6 +13,7 @@ import UpdatePassword from "./../components/profile/UpdatePassword";
 
 import Movies from "../components/movies/Movies";
 import UploadMovie from "../components/movies/UploadMovie";
+import MovieDetails from "../components/movies/MovieDetails";
 
 let StreamBaseRoutes = () => {
   let StreamRoutes = useRoutes([
@@ -63,6 +64,7 @@ let StreamBaseRoutes = () => {
               <Movies />
             </ProtectedRoute>
           ),
+
           children: [
             {
               path: "upload-movie",
@@ -73,6 +75,14 @@ let StreamBaseRoutes = () => {
       ],
     },
 
+    {
+      path: ":movieName/:id",
+      element: (
+        <ProtectedRoute>
+          <MovieDetails />
+        </ProtectedRoute>
+      ),
+    },
     {
       path: "*",
       element: <NotFound />,

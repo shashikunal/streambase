@@ -1,7 +1,25 @@
-import React from "react";
-
+import React, { useContext } from "react";
+import { MovieContext } from "../../api/MovieContext";
+import Spinner from "../../pages/spinner/Spinner";
+import Movie from "./Movie";
+import Styles from "./movie.module.css";
 const MovieSection = () => {
-  return <div>MovieSection</div>;
+  let { Movies } = useContext(MovieContext);
+  console.log(Movies);
+
+  return (
+    <section id={Styles.movieBlock}>
+      <article>
+        {Movies.length === 0 || Movies === undefined ? (
+          <Spinner />
+        ) : (
+          Movies.map(movie => {
+            return <Movie key={movie.id} {...movie} />;
+          })
+        )}
+      </article>
+    </section>
+  );
 };
 
 export default MovieSection;

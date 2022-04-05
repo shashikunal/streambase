@@ -119,3 +119,20 @@ body {
   color: #fff;
   border: 1px solid #ffc107;
 }
+
+.movie_description {
+  flex-basis: 100% !important;
+  height: 200px !important;
+}
+.movie_description textarea {
+  background-color: #111;
+  height: 150px;
+  margin: 10px 0;
+  padding: 10px 10px;
+  color: #fff;
+}
+
+.language,
+.cast {
+  flex-basis: 48.5% !important;
+}
