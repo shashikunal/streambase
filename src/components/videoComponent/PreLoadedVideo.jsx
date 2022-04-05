@@ -1,8 +1,10 @@
 import React, { useRef, useState, useContext, Fragment } from "react";
 // import VIDEO from "./arabic_kuthu.mp4";
 import Styles from "./video.module.css";
+import { Link } from "react-router-dom";
 import { FaPlay, FaPause } from "react-icons/fa";
 import { MovieContext } from "./../../api/MovieContext";
+import { toast } from "react-toastify";
 const PreLoadedVideo = () => {
   let { Movies } = useContext(MovieContext);
   let videoRef = useRef();
@@ -41,6 +43,7 @@ const PreLoadedVideo = () => {
                     <span>Play</span>
                   </aside>
                 )}
+                <Link to="/user/movie">watch now</Link>
               </main>
             </p>
           </div>
